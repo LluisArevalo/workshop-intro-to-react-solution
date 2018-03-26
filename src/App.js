@@ -8,6 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { spacexItems: [], rocketId: '' };
+    this.handleItemClick = this.handleItemClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchItems();
   }
 
   fetchItems() {
@@ -20,9 +25,12 @@ class App extends Component {
     });
   }
 
+  handleItemClick(event) {
+    this.setState({ rocketId: event.target.id });
+  }
+
   render() {
-    this.fetchItems();
-    const { rocketId } = this.state;
+    const { rocketId, spacexItems } = this.state;
 
     return (
       <div className="App">
@@ -31,7 +39,11 @@ class App extends Component {
           <img src="/images/logo.png" className="App-logo" alt="SpaceX" />
         </header>
         {
-          rocketId !== '' ? 'Rocket information' : <RocketList />
+          rocketId !== '' ? (
+            rocketId
+          ) : (
+            <RocketList spacexItems={spacexItems} handleClick={this.handleItemClick} />
+          )
         }
       </div>
     );

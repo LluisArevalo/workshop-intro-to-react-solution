@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RocketList from './Components/RocketList';
+import RocketItem from './Components/RocketItem';
 import './App.css';
 
 const apiUrl = 'https://api.spacexdata.com/v2/';
@@ -7,8 +8,9 @@ const apiUrl = 'https://api.spacexdata.com/v2/';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { spacexItems: [], rocketId: '' };
+    this.state = { spacexItems: [], currentItemId: '' };
     this.handleItemClick = this.handleItemClick.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
   }
 
   componentDidMount() {
@@ -26,11 +28,16 @@ class App extends Component {
   }
 
   handleItemClick(event) {
-    this.setState({ rocketId: event.target.id });
+    this.setState({ currentItemId: event.target.id });
+  }
+
+  handleResetClick(event) {
+    event.preventDefault();
+    this.setState({ currentItemId: '' });
   }
 
   render() {
-    const { rocketId, spacexItems } = this.state;
+    const { currentItemId, spacexItems } = this.state;
 
     return (
       <div className="App">
@@ -39,8 +46,8 @@ class App extends Component {
           <img src="/images/logo.png" className="App-logo" alt="SpaceX" />
         </header>
         {
-          rocketId !== '' ? (
-            rocketId
+          currentItemId !== '' ? (
+            <RocketItem itemId={currentItemId} handleClick={this.handleResetClick} />
           ) : (
             <RocketList spacexItems={spacexItems} handleClick={this.handleItemClick} />
           )

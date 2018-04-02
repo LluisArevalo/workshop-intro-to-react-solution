@@ -4,21 +4,31 @@
   width: 900px;
 }
 
-.item-container .information {
+.information {
   align-items: flex-start;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.item-container .information img,
-.item-container .information div {
+.information h2 {
+  margin-top: 0;
+}
+
+.information h3 {
+  margin-top: 40px;
+}
+
+.information img,
+.information div {
   display: block;
   text-align: left;
   width: 48%;
 }
 
-.item-container .information img {
+.information img {
   height: auto;
+  margin-bottom: 20px;
 }
 
 button {

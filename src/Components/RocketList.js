@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './RocketList.css';
 
 class RocketList extends Component {
   loadItems() {
@@ -7,8 +8,14 @@ class RocketList extends Component {
 
     spacexItems.forEach(item => {
       items.push(
-        <article key={item.id} id={item.id} onClick={handleClick}>
-          {item.name}
+        <article className="card" key={item.id} id={item.id} onClick={() => handleClick(item.id)}>
+          <div className="img-container">
+            <img src={`/images/${item.id}.jpg`} alt={item.name} />
+          </div>
+
+          <label>
+            {item.name}
+          </label>
         </article>
       );
     });
@@ -18,7 +25,7 @@ class RocketList extends Component {
 
   render() {
     return (
-      <section>
+      <section className="cards-container">
         {this.loadItems()}
       </section>
     );

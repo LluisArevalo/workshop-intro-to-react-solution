@@ -1,0 +1,46 @@
+.cards-container {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 5% 0;
+  width: 90%;
+}
+
+.card {
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  margin-bottom: 40px;
+  overflow: hidden;
+  transition: .3s ease-in-out box-shadow;
+  width: 30%;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+}
+
+.card .img-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.card .img-container:hover img {
+  --scale-value: 1.05;
+  -moz-transform: scale(var(--scale-value));
+  -ms-transform: scale(var(--scale-value));
+  -webkit-transform: scale(var(--scale-value));
+  transform: scale(var(--scale-value));
+}
+
+.card .img-container img {
+  transition: .3s ease-in-out transform;
+  width: 100%;
+}
+
+.card label {
+  cursor: inherit;
+  display: block;
+  padding: 16px 0;
+}

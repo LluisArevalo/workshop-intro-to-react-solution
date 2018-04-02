@@ -27,8 +27,8 @@ class App extends Component {
     });
   }
 
-  handleItemClick(event) {
-    this.setState({ currentItemId: event.target.id });
+  handleItemClick(id) {
+    this.setState({ currentItemId: id });
   }
 
   handleResetClick(event) {
@@ -42,7 +42,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to SpaceX</h1>
           <img src="/images/logo.png" className="App-logo" alt="SpaceX" />
         </header>
         {

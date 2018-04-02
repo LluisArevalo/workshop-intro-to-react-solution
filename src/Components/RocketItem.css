@@ -1,0 +1,31 @@
+.item-container {
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 900px;
+}
+
+.item-container .information {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-container .information img,
+.item-container .information div {
+  display: block;
+  text-align: left;
+  width: 48%;
+}
+
+.item-container .information img {
+  height: auto;
+}
+
+button {
+  background-color: #181c1f;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+}

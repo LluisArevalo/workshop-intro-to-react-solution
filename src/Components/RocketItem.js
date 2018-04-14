@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './Title';
 import './RocketItem.css';
 
 const apiUrl = 'https://api.spacexdata.com/v2/';
@@ -46,7 +47,7 @@ class RocketItem extends Component {
     return (
       type === 'rocket' ? (
         <div>
-          <h2>{data.name}</h2>
+          <Title text={data.name} />
           <p>{data.description}</p>
           <h3>Details</h3>
           <p><b>Height</b> {data.height.meters} m.</p>
@@ -55,7 +56,7 @@ class RocketItem extends Component {
         </div>
       ) : (
         <div>
-          <h2>{data.name}</h2>
+          <Title text={data.name} />
           <h3>Details</h3>
           <p><b>Height (with trunk)</b> {data.height_w_trunk.meters} m.</p>
           <p><b>Diameter</b> {data.diameter.meters} m.</p>

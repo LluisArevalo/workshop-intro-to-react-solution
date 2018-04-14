@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './Title';
 import './RocketList.css';
 
 class RocketList extends Component {
@@ -13,9 +14,7 @@ class RocketList extends Component {
             <img src={`/images/${item.id}.jpg`} alt={item.name} />
           </div>
 
-          <label>
-            {item.name}
-          </label>
+          <Title text={item.name} />
         </article>
       );
     });

@@ -13,10 +13,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchItems();
-  }
-
-  fetchItems() {
     fetchDataCollection().then(spacexItems => this.setState({ spacexItems }));
   }
 

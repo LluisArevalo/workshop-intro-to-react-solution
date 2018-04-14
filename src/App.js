@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import RocketList from './Components/RocketList';
 import RocketItem from './Components/RocketItem';
+import { fetchDataCollection } from './data/index.js';
 import './App.css';
-
-const apiUrl = 'https://api.spacexdata.com/v2/';
 
 class App extends Component {
   constructor(props) {
@@ -18,13 +17,7 @@ class App extends Component {
   }
 
   fetchItems() {
-    const rocketsReq = fetch(`${apiUrl}rockets`).then(response => response.json());
-    const capsulesReq = fetch(`${apiUrl}capsules`).then(response => response.json());
-
-    Promise.all([rocketsReq, capsulesReq]).then(([rockets, capsules]) => {
-      const spacexItems = rockets.concat(capsules);
-      this.setState({ spacexItems });
-    });
+    fetchDataCollection().then(spacexItems => this.setState({ spacexItems }));
   }
 
   handleItemClick(id) {

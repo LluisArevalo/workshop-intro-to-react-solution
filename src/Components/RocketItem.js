@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title';
 import './RocketItem.css';
+import { fetchDataItem } from '../data/';
 
 const apiUrl = 'https://api.spacexdata.com/v2/';
 const capsules = ['dragon1', 'dragon2', 'crewdragon'];
@@ -12,8 +13,10 @@ class RocketItem extends Component {
   }
 
   componentDidMount() {
+    fetchDataItem();
     const { itemId } = this.props;
     const isCapsule = capsules.indexOf(itemId) >= 0;
+
     const url = `${apiUrl}${ isCapsule ? 'capsules' : 'rockets'}/${itemId}`;
     fetch(url)
       .then(response => response.json())
